@@ -1,4 +1,11 @@
+import logging
 from search import search_prompt
+from config import GOOGLE_CHAT_MODEL, OPENAI_CHAT_MODEL, formatLLMError
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s — %(message)s",
+)
 
 def main():
     print("Inicializando chat...")
@@ -12,8 +19,11 @@ def main():
         if question.lower() in ("sair", "exit"):
             print("Encerrando chat.")
             break
-        response = chain.invoke(question)
-        print(f"\nAssistente: {response}\n")
+        try:
+            response = chain.invoke(question)
+            print(f"\nAssistente: {response}\n")
+        except Exception as e:
+            print(f"\nErro: serviço de IA indisponível — {formatLLMError(e)}\n")
 
 if __name__ == "__main__":
     main()

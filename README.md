@@ -170,9 +170,24 @@ O assistente responde **somente** com base no conteúdo do PDF. Para perguntas s
 ├── .env.example             # Variáveis de ambiente (template)
 ├── document.pdf             # PDF a ser ingerido
 ├── requirements.txt
+├── docs/
+│   └── adr/                 # Architecture Decision Records
+│       ├── 0001-fallback-llm-gemini-openai.md
+│       └── 0002-fallback-embeddings-openai-gemini.md
 └── src/
     ├── config.py            # Carrega .env, inicializa provedores e store
     ├── ingest.py            # Pipeline de ingestão do PDF
     ├── search.py            # Chain de busca semântica + prompt RAG
     └── chat.py              # Interface de chat interativo no terminal
 ```
+
+---
+
+## Decisões de Arquitetura (ADRs)
+
+As decisões técnicas relevantes do projeto estão documentadas como Architecture Decision Records em [`docs/adr/`](docs/adr/):
+
+| # | Título | Status |
+|---|--------|--------|
+| [0001](docs/adr/0001-fallback-llm-gemini-openai.md) | Estratégia de Fallback para o LLM de Chat (`getLLM`) | Accepted |
+| [0002](docs/adr/0002-fallback-embeddings-openai-gemini.md) | Estratégia de Fallback para Embeddings (`getAIembeddings`) | Accepted |
