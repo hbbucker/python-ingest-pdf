@@ -103,7 +103,7 @@ Ou instale manualmente:
 
 ```bash
 pip install -U langchain langchain-openai langchain-google-genai langchain-community \
-               langchain-anthropic langchain-text-splitters langchain-postgres \
+               langchain-text-splitters langchain-postgres \
                psycopg python-dotenv beautifulsoup4 pypdf
 ```
 
